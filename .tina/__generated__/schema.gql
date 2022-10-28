@@ -82,8 +82,7 @@ type Collection {
 union DocumentNode = Page
 
 type Page implements Node & Document {
-  buttonText: String
-  confettiVolume: Float
+  title: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -96,19 +95,8 @@ input StringFilter {
   in: [String]
 }
 
-input NumberFilter {
-  lt: Float
-  lte: Float
-  gte: Float
-  gt: Float
-  eq: Float
-  exists: Boolean
-  in: [Float]
-}
-
 input PageFilter {
-  buttonText: StringFilter
-  confettiVolume: NumberFilter
+  title: StringFilter
 }
 
 type PageConnectionEdges {
@@ -136,8 +124,7 @@ input DocumentMutation {
 }
 
 input PageMutation {
-  buttonText: String
-  confettiVolume: Float
+  title: String
 }
 
 schema {
