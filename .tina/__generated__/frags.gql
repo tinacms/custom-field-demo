@@ -1,9 +1,4 @@
 fragment PageParts on Page {
-  text
+  buttonText
   confettiVolume
-}
-
-fragment PostParts on Post {
-  title
-  body
 }

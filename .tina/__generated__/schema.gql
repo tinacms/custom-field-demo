@@ -50,13 +50,10 @@ type Query {
   document(collection: String, relativePath: String): DocumentNode!
   page(relativePath: String): Page!
   pageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PageFilter): PageConnection!
-  post(relativePath: String): Post!
-  postConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostFilter): PostConnection!
 }
 
 input DocumentFilter {
   page: PageFilter
-  post: PostFilter
 }
 
 type DocumentConnectionEdges {
@@ -82,10 +79,10 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
 }
 
-union DocumentNode = Page | Post
+union DocumentNode = Page
 
 type Page implements Node & Document {
-  text: String
+  buttonText: String
   confettiVolume: Float
   id: ID!
   _sys: SystemInfo!
@@ -110,7 +107,7 @@ input NumberFilter {
 }
 
 input PageFilter {
-  text: StringFilter
+  buttonText: StringFilter
   confettiVolume: NumberFilter
 }
 
@@ -125,30 +122,6 @@ type PageConnection implements Connection {
   edges: [PageConnectionEdges]
 }
 
-type Post implements Node & Document {
-  title: String
-  body: String
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input PostFilter {
-  title: StringFilter
-  body: StringFilter
-}
-
-type PostConnectionEdges {
-  cursor: String!
-  node: Post
-}
-
-type PostConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [PostConnectionEdges]
-}
-
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
@@ -156,23 +129,15 @@ type Mutation {
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePage(relativePath: String!, params: PageMutation!): Page!
   createPage(relativePath: String!, params: PageMutation!): Page!
-  updatePost(relativePath: String!, params: PostMutation!): Post!
-  createPost(relativePath: String!, params: PostMutation!): Post!
 }
 
 input DocumentMutation {
   page: PageMutation
-  post: PostMutation
 }
 
 input PageMutation {
-  text: String
+  buttonText: String
   confettiVolume: Float
-}
-
-input PostMutation {
-  title: String
-  body: String
 }
 
 schema {
