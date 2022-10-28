@@ -5,8 +5,8 @@ import React from "react";
 import { ConfettiLauncher } from "../components/confettiLauncher";
 
 <ConfettiLauncher
-  buttonText={props.data?.buttonText}
-  confettiVolume={props.data?.confettiVolume}
+  buttonText={props.page?.buttonText}
+  confettiVolume={data.page?.confettiVolume}
 />;
 
 export default function Home(props) {
