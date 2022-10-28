@@ -5,9 +5,9 @@ import React from "react";
 import { ConfettiLauncher } from "../components/confettiLauncher";
 
 <ConfettiLauncher
-  buttonText={props.page?.buttonText}
+  buttonText={data.page?.buttonText}
   confettiVolume={data.page?.confettiVolume}
-/>;
+/>
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode

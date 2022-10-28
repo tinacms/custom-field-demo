@@ -1,4 +1,5 @@
 import { defineStaticConfig } from "tinacms";
+import React from 'react'
 
 export default defineStaticConfig({
   clientId: null,
@@ -22,10 +23,12 @@ export default defineStaticConfig({
           },
           {
             type: "string",
-            name: "text",
+            label: "Button Text",
+            name: "buttonText",
           },
           {
             type: "number",
+            label: "Confetti Volume",
             name: "confettiVolume",
           },
         ],
@@ -42,26 +45,26 @@ export default defineStaticConfig({
   },
 });
 
-// ui: {
-//   component: (props) => {
-//     return (
-//       <div className="flex flex-col">
-//         <label
-//           className="font-bold text-sm"
-//           htmlFor={props.input.name}
-//         >
-//           {props.field.name}
-//         </label>
+ui: {
+  component: (props) => {
+    return (
+      <div className="flex flex-col">
+        <label
+          className="font-bold text-sm"
+          htmlFor={props.input.name}
+        >
+          {props.field.name}
+        </label>
 
-//         <input
-//           className="my-4"
-//           type="range"
-//           id={props.input.name}
-//           {...props.input}
-//           min="0"
-//           max="1000"
-//         />
-//       </div>
-//     );
-//   },
-// },
+        <input
+          className="my-4"
+          type="range"
+          id={props.input.name}
+          {...props.input}
+          min="0"
+          max="1000"
+        />
+      </div>
+    );
+  },
+},

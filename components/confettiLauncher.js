@@ -35,7 +35,7 @@ export function ConfettiLauncher(props) {
           }}
           onClick={() => setIsLaunched((launched) => !launched)}
         >
-          {props?.buttonText || "Enter a value"}
+          {props?.buttonText || "Click Me"}
         </button>
       </div>
     </>
