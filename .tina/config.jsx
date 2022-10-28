@@ -22,11 +22,8 @@ export default defineStaticConfig({
           },
         ],
         ui: {
-          router: ({ document }) => {
-            if (document._sys.filename === "home") {
-              return `/`;
-            }
-            return undefined;
+          router: () => {
+            return `/`;
           },
         },
       },

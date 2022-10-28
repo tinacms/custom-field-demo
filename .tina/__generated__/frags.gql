@@ -1,3 +1,5 @@
 fragment PageParts on Page {
   title
+  text
+  confettiVolume
 }

@@ -2,6 +2,7 @@ import { useTina } from "tinacms/dist/react";
 import { client } from "../.tina/__generated__/client";
 import Confetti from "react-confetti";
 import React from "react";
+import { ConfettiLauncher } from "../components/confettiLauncher";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
