@@ -20,6 +20,16 @@ export default defineStaticConfig({
             label: "Title",
             name: "title",
           },
+          {
+            type: "string",
+            label: "Button Text",
+            name: "buttonText",
+          },
+          {
+            type: "number",
+            label: "Confetti Volume",
+            name: "confettiVolume",
+          },
         ],
         ui: {
           router: () => {

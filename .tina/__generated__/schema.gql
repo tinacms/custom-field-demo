@@ -83,6 +83,8 @@ union DocumentNode = Page
 
 type Page implements Node & Document {
   title: String
+  buttonText: String
+  confettiVolume: Float
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -95,8 +97,20 @@ input StringFilter {
   in: [String]
 }
 
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
 input PageFilter {
   title: StringFilter
+  buttonText: StringFilter
+  confettiVolume: NumberFilter
 }
 
 type PageConnectionEdges {
@@ -125,6 +139,8 @@ input DocumentMutation {
 
 input PageMutation {
   title: String
+  buttonText: String
+  confettiVolume: Float
 }
 
 schema {
